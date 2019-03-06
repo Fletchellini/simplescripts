@@ -1,0 +1,10 @@
+#! /bin/bash
+#Adds Mass Users with input file.
+read USERNAME
+while [ $USERNAME != "" ] 2> /dev/null
+do
+read FULLNAME
+#useradd -c "$FULLNAME" -m -p "Password01" -s /bin/bash $USERNAME 
+/home/isaac/scripts/aou $USERNAME $FULLNAME
+read USERNAME
+done
