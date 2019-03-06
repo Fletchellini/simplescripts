@@ -1,0 +1,10 @@
+#! /bin/bash
+# changes your directory to target with path
+touch /home/isaac/Documents/tmp
+
+find / -name $1 -user $USER &>> /home/isaac/Documents/tmp
+dir="$(/home/isaac/scripts/.1line < /home/isaac/Documents/tmp)"
+
+rm /home/isaac/Documents/tmp
+
+cd $dir
