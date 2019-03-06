@@ -1,0 +1,3 @@
+#! /bin/bash
+#Adds single user
+useradd -c "$2" -m -p "Password01" -s /bin/bash $1
