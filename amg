@@ -1,0 +1,10 @@
+#! /bin/bash
+#Adds mass groups
+echo "Type groupname then enter, leave empty when done"
+read GROUPNAME
+while [ $GROUPNAME != "" ] 2> /dev/null
+do
+groupadd $GROUPNAME
+mkdir /$GROUPNAME
+read GROUPNAME
+done

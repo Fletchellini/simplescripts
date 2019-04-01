@@ -1,0 +1,31 @@
+#! /bin/bash
+#Isaac Fletcher
+#Sets color bash for every user
+if [ ! -e ~/fun ]; then
+touch ~/fun
+echo 'C1=$[31 + RANDOM % 6]
+C2=$[31 + RANDOM % 6]
+C3=$[31 + RANDOM % 6]
+C4=$[31 + RANDOM % 6]
+while [ $C1 -eq $C2 -o $C1 -eq $C3 -o $C1 -eq $C4 -o $C2 -eq $C3 -o $C2 -eq $C4 -o $C3 -eq $C4 ]
+do
+C2=$[31 + RANDOM % 6]
+C3=$[31 + RANDOM % 6]
+C4=$[31 + RANDOM % 6]
+done
+PS1="\[\033[$[$C1]m\]\u:\[\033[$[$C2]m\]\w\[\033[$[$C3]m\]$ \[\033[$[$C4]m\]"
+' >> ~/fun
+echo "PROMPT_COMMAND='. ~/fun'" >> ~/.bashrc
+chmod a+x ~/fun
+fi
+#colors rest of users
+ls /home >> temp
+while IFS= read -r  PATHWAY
+do
+if [ ! -e /home/$PATHWAY/fun ]; then
+cp ~/fun /home/$PATHWAY/fun
+echo "PROMPT_COMMAND=". /home/$PATHWAY/fun"" >> /home/$PATHWAY/.bashrc
+fi
+done < temp
+rm temp
+
