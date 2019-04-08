@@ -3,7 +3,6 @@
 read USERNAME
 while [ $USERNAME != "" ] 2> /dev/null
 do
-    deluser $USERNAME 2> /dev/null
-    rm -r /home/$USERNAME
+    ./du $USERNAME
 read USERNAME
 done

@@ -1,0 +1,5 @@
+#! /bin/bash
+#Deletes user and home directory with input
+
+deluser $1 2> /dev/null
+rm -rf /home/$1

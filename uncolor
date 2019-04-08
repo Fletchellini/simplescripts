@@ -1,0 +1,6 @@
+#! /bin/bash
+#Isaac Fletcher
+#uncolors root
+grep -v "PROMPT_COMMAND=. ~/fun" ~/.bashrc > tempo && mv tempo .bashrc
+rm -f ~/fun
+ 

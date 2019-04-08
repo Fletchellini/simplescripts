@@ -1,0 +1,14 @@
+#! /bin/bash
+#Isaac Fletcher
+#uncolors root
+grep -v "PROMPT_COMMAND=. ~/fun" ~/.bashrc > tempo && mv tempo .bashrc
+rm -f ~/fun
+#uncolors rest of users
+ls /home >> temp
+while IFS= read -r PATHWAY
+do
+rm -f /home/$PATHWAY/fun
+grep -v "PROMPT_COMMAND=. /home/$PATHWAY/fun" /home/$PATHWAY/.bashrc > tempo && mv tempo /home/$PATHWAY/.bashrc
+done < temp
+rm temp
+PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$ " 
